@@ -370,6 +370,8 @@ through the template configured in the Git config at sprintly.template.
 
         for product in products:
             for item in product['items']:
+                if item['status'] == 'someday':
+                    continue
                 if not product['id'] in statusTree[item['status']]:
                     statusTree[item['status']][product['id']] = []
                     itemCount += 1
